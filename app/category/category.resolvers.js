@@ -1,5 +1,5 @@
 const queries = {
-  categories: async function () {},
+  categories: (root, args, { db }) => db.Category.all(),
 };
 
 export { queries };
