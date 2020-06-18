@@ -4,6 +4,7 @@ const category = gql`
     uuid: String
     title: String
     createdAt: String
+    updatedAt: String
   }
 `;
 
