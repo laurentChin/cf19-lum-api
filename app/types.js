@@ -5,6 +5,7 @@ const types = gql`
   ${category}
   type Query {
     categories: [Category]
+    category(uuid: String): Category
   }
 `;
 export default types;
