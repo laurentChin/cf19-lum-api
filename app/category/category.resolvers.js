@@ -9,6 +9,8 @@ const mutations = {
 
     return db.Category.create({ uuid, title });
   },
+  deleteCategory: (root, { uuid }, { db }) =>
+    db.Category.where("uuid", uuid).delete(),
 };
 
 export { queries, mutations };
