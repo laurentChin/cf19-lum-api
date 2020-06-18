@@ -11,6 +11,7 @@ const types = gql`
   type Mutation {
     createCategory(title: String): Category
     deleteCategory(uuid: String): [Boolean]
+    updateCategory(uuid: String, title: String): Category
   }
 `;
 export default types;

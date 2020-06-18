@@ -11,6 +11,10 @@ const mutations = {
   },
   deleteCategory: (root, { uuid }, { db }) =>
     db.Category.where("uuid", uuid).delete(),
+  updateCategory: async (root, { uuid, title }, { db }) => {
+    await db.Category.where("uuid", uuid).update({ title });
+    return db.Category.where("uuid", uuid).first();
+  },
 };
 
 export { queries, mutations };
