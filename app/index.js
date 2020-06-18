@@ -1,7 +1,7 @@
 import { Application } from "../dependencies/oak.js";
 import { applyGraphQL } from "../dependencies/graphql.js";
 import { Database } from "../dependencies/denodb.js";
-
+import { uuid } from "../dependencies/std.js";
 import { Category } from "./category/category.model.js";
 
 import config from "../config/config.js";
@@ -24,6 +24,7 @@ const GraphQLService = await applyGraphQL({
       db: {
         Category,
       },
+      uuidV4Generator: uuid.v4,
     };
   },
 });

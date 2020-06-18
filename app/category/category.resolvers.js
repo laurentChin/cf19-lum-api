@@ -3,4 +3,12 @@ const queries = {
   category: (root, { uuid }, { db }) => db.Category.where("uuid", uuid).first(),
 };
 
-export { queries };
+const mutations = {
+  createCategory: (root, { title }, { db, uuidV4Generator }) => {
+    const uuid = uuidV4Generator.generate();
+
+    return db.Category.create({ uuid, title });
+  },
+};
+
+export { queries, mutations };

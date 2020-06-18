@@ -7,5 +7,9 @@ const types = gql`
     categories: [Category]
     category(uuid: String): Category
   }
+
+  type Mutation {
+    createCategory(title: String): Category
+  }
 `;
 export default types;
