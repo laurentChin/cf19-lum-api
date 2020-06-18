@@ -3,6 +3,7 @@ const category = gql`
   type Category {
     uuid: String
     title: String
+    createdAt: String
   }
 `;
 

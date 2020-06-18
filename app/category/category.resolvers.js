@@ -4,10 +4,15 @@ const queries = {
 };
 
 const mutations = {
-  createCategory: (root, { title }, { db, uuidV4Generator }) => {
+  createCategory: async (root, { title }, { db, uuidV4Generator }) => {
     const uuid = uuidV4Generator.generate();
+    const [{ createdAt }] = await db.Category.create({ uuid, title });
 
-    return db.Category.create({ uuid, title });
+    return {
+      uuid,
+      title,
+      createdAt,
+    };
   },
   deleteCategory: (root, { uuid }, { db }) =>
     db.Category.where("uuid", uuid).delete(),
