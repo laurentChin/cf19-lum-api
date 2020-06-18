@@ -12,6 +12,6 @@ console.log("Attempt to sync database models.");
 try {
   await db.sync();
   console.log("Database models have been sync successfully.");
-} catch {
-  console.log("Attempt to sync database models fails.");
+} catch (e) {
+  console.log(`Attempt to sync database models fails. (${e})`);
 }
