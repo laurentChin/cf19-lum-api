@@ -5,11 +5,8 @@ class Category extends Model {
   static timestamps = true;
 
   static fields = {
-    id: {
-      type: DataTypes.INTEGER,
+    _id: {
       primaryKey: true,
-      unique: true,
-      autoIncrement: true,
     },
     uuid: {
       type: DataTypes.UUID,
