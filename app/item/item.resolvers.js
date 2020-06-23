@@ -2,8 +2,33 @@ import { fs } from "../../dependencies/std.js";
 
 import { dataURLtoBlob } from "../utils/converter.js";
 
+import { queries as pictureQueries } from "../picture/picture.resolvers.js";
+import { queries as categoryQueries } from "../category/category.resolvers.js";
+
 const queries = {
   items: (root, args, { db }) => db.Item.all(),
+  item: async (root, { uuid }, { db }) => {
+    const {
+      _id,
+      title,
+      createdAt,
+      updatedAt,
+      categoryId,
+    } = await db.Item.where("uuid", uuid).first();
+
+    return {
+      uuid,
+      title,
+      createdAt,
+      updatedAt,
+      picture: await pictureQueries.picture(root, { itemUuid: _id }, { db }),
+      category: await categoryQueries.category(
+        root,
+        { _id: categoryId },
+        { db }
+      ),
+    };
+  },
 };
 
 const mutations = {
