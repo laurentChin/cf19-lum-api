@@ -4,10 +4,7 @@ import { Database } from "../dependencies/denodb.js";
 import { uuid } from "../dependencies/std.js";
 import { oakCors } from "../dependencies/cors.js";
 
-import { Category } from "./category/category.model.js";
-import { Item } from "./item/item.model.js";
-import { Picture } from "./picture/picture.model.js";
-import { Set } from "./set/set.model.js";
+import { Category, Item, Picture, Set } from "./models.js";
 
 import config from "../config/config.js";
 

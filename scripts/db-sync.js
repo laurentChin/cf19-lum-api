@@ -1,10 +1,7 @@
 import { Database } from "../dependencies/denodb.js";
 
 import config from "../config/config.js";
-import { Category } from "../app/category/category.model.js";
-import { Item } from "../app/item/item.model.js";
-import { Picture } from "../app/picture/picture.model.js";
-import { Set } from "../app/set/set.model.js";
+import { Category, Item, Picture, Set } from "../app/models.js";
 
 const { dialect, ...dbConfig } = config.database;
 const db = new Database(dialect, { ...dbConfig });
