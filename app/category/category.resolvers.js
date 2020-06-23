@@ -1,6 +1,7 @@
 const queries = {
   categories: (root, args, { db }) => db.Category.all(),
-  category: (root, { uuid }, { db }) => db.Category.where("uuid", uuid).first(),
+  category: (root, { uuid, _id }, { db }) =>
+    uuid ? db.Category.where("uuid", uuid).first() : db.Category.find(_id),
 };
 
 const mutations = {

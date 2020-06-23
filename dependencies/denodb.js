@@ -1,3 +1,8 @@
-import { Database, DataTypes, Model } from "https://deno.land/x/denodb/mod.ts";
+import {
+  Database,
+  DataTypes,
+  Model,
+  Relationships,
+} from "https://deno.land/x/denodb/mod.ts";
 
-export { Database, DataTypes, Model };
+export { Database, DataTypes, Model, Relationships };

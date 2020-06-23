@@ -1,3 +1,4 @@
 .deno_plugins
 
 config/config.*.json
+public/uploads

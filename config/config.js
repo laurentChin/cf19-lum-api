@@ -16,11 +16,14 @@ const database = {
   host: "localhost",
 };
 
+const uploadDirectory = `${configDir}/../public/uploads`;
+
 export default {
+  port: 8080,
+  uploadDirectory,
   ...customConfigs,
   database: {
     ...database,
     ...(customConfigs.database ? customConfigs.database : {}),
   },
-  port: 8080,
 };
