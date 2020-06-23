@@ -18,6 +18,7 @@ const types = gql`
     item(uuid: String): Item
     picture(itemUuid: String): Picture
     sets: [Set]
+    set(uuid: String): Set
   }
 
   type Mutation {

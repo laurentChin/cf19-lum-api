@@ -1,5 +1,6 @@
 const queries = {
   sets: (root, args, { db }) => db.Set.all(),
+  set: (root, { uuid }, { db }) => db.Set.where("uuid", uuid).first(),
 };
 
 const mutations = {
