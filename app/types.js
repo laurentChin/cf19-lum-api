@@ -17,6 +17,7 @@ const types = gql`
     items: [Item]
     item(uuid: String): Item
     picture(itemUuid: String): Picture
+    sets: [Set]
   }
 
   type Mutation {

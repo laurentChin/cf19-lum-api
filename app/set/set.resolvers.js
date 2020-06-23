@@ -1,4 +1,6 @@
-const queries = {};
+const queries = {
+  sets: (root, args, { db }) => db.Set.all(),
+};
 
 const mutations = {
   createSet: async (root, { title }, { db, uuidV4Generator }) => {

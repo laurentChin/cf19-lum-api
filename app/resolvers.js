@@ -10,6 +10,7 @@ const resolvers = {
     ...Category.queries,
     ...Item.queries,
     ...Picture.queries,
+    ...Set.queries,
   },
 
   Mutation: {
