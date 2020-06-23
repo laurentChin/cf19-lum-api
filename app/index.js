@@ -7,6 +7,7 @@ import { oakCors } from "../dependencies/cors.js";
 import { Category } from "./category/category.model.js";
 import { Item } from "./item/item.model.js";
 import { Picture } from "./picture/picture.model.js";
+import { Set } from "./set/set.model.js";
 
 import config from "../config/config.js";
 
@@ -16,7 +17,7 @@ import resolvers from "./resolvers.js";
 const { dialect, ...dbConfig } = config.database;
 const db = new Database(dialect, { ...dbConfig });
 
-db.link([Category, Item, Picture]);
+db.link([Category, Item, Picture, Set]);
 
 const app = new Application();
 
@@ -30,6 +31,7 @@ const GraphQLService = await applyGraphQL({
         Category,
         Item,
         Picture,
+        Set,
       },
       uuidV4Generator: uuid.v4,
       uploadDirectory: config.uploadDirectory,
