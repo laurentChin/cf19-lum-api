@@ -14,7 +14,7 @@ const types = gql`
   type Query {
     categories: [CategoryLight]
     category(uuid: String): Category
-    items: [Item]
+    items: [ItemLight]
     item(uuid: String): Item
     picture(itemUuid: String): Picture
     sets: [Set]
