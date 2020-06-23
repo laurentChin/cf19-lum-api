@@ -2,7 +2,9 @@ import { fs } from "../../dependencies/std.js";
 
 import { dataURLtoBlob } from "../utils/converter.js";
 
-const queries = {};
+const queries = {
+  items: (root, args, { db }) => db.Item.all(),
+};
 
 const mutations = {
   createItem: async (
