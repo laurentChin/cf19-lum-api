@@ -1,7 +1,15 @@
 const queries = {
   categories: (root, args, { db }) => db.Category.all(),
-  category: (root, { uuid, _id }, { db }) =>
-    uuid ? db.Category.where("uuid", uuid).first() : db.Category.find(_id),
+  category: async (root, { uuid, _id }, { db }) => {
+    const category = await (uuid
+      ? db.Category.where("uuid", uuid).first()
+      : db.Category.find(_id));
+    const items = await db.Category.where("_id", category._id).items();
+    return {
+      ...category,
+      items,
+    };
+  },
 };
 
 const mutations = {

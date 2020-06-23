@@ -5,6 +5,7 @@ const category = gql`
     title: String
     createdAt: String
     updatedAt: String
+    items: [ItemLight]
   }
 `;
 

@@ -8,6 +8,12 @@ const item = gql`
     updatedAt: String
     category: Category
   }
+
+  type ItemLight {
+    uuid: String
+    title: String
+    updatedAt: String
+  }
 `;
 
 export { item };

@@ -1,6 +1,6 @@
 import { gql } from "../dependencies/graphql.js";
 import { category } from "./category/category.type.js";
-import { item } from "./item/item.type.js";
+import { item } from "./item/item.types.js";
 import { picture } from "./picture/picture.type.js";
 import { file } from "./file/file.input.js";
 import { set } from "./set/set.type.js";
