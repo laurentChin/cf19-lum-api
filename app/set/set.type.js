@@ -6,6 +6,12 @@ const set = gql`
     createdAt: String
     updatedAt: String
   }
+
+  type SetLight {
+    uuid: String
+    title: String
+    updatedAt: String
+  }
 `;
 
 export { set };

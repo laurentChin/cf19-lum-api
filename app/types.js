@@ -17,7 +17,7 @@ const types = gql`
     items: [ItemLight]
     item(uuid: String): Item
     picture(itemUuid: String): Picture
-    sets: [Set]
+    sets: [SetLight]
     set(uuid: String): Set
   }
 
