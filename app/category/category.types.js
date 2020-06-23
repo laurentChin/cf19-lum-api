@@ -7,6 +7,12 @@ const category = gql`
     updatedAt: String
     items: [ItemLight]
   }
+
+  type CategoryLight {
+    uuid: String
+    title: String
+    updatedAt: String
+  }
 `;
 
 export { category };

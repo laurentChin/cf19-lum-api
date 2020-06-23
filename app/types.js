@@ -1,5 +1,5 @@
 import { gql } from "../dependencies/graphql.js";
-import { category } from "./category/category.type.js";
+import { category } from "./category/category.types.js";
 import { item } from "./item/item.types.js";
 import { picture } from "./picture/picture.type.js";
 import { file } from "./file/file.input.js";
@@ -12,7 +12,7 @@ const types = gql`
   ${file}
   ${set}
   type Query {
-    categories: [Category]
+    categories: [CategoryLight]
     category(uuid: String): Category
     items: [Item]
     item(uuid: String): Item
