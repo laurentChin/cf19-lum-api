@@ -57,7 +57,6 @@ class Picture extends Model {
       type: DataTypes.UUID,
       unique: true,
     },
-    itemId: Relationships.belongsTo(Item),
     name: DataTypes.STRING,
     extension: DataTypes.STRING,
     path: DataTypes.STRING,
@@ -83,5 +82,7 @@ class Set extends Model {
     title: DataTypes.STRING,
   };
 }
+
+Relationships.oneToOne(Item, Picture);
 
 export { Category, Item, Picture, Set };
