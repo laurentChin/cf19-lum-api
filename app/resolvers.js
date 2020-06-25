@@ -5,6 +5,11 @@ import * as Picture from "./picture/picture.resolvers.js";
 import * as Set from "./set/set.resolvers.js";
 
 const resolvers = {
+  UpdateItemResult: {
+    __resolveType: (obj) => {
+      return obj.uuid ? "ItemLight" : "Error";
+    },
+  },
   ...File.enumerations,
   Query: {
     ...Category.queries,

@@ -14,6 +14,8 @@ const item = gql`
     title: String
     updatedAt: String
   }
+
+  union UpdateItemResult = ItemLight | Error
 `;
 
 export { item };

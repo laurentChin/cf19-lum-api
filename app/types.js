@@ -6,6 +6,11 @@ import { file } from "./file/file.input.js";
 import { set } from "./set/set.type.js";
 
 const types = gql`
+  type Error {
+    code: Int
+    message: String
+  }
+
   ${category}
   ${item}
   ${picture}
@@ -26,6 +31,12 @@ const types = gql`
     deleteCategory(uuid: String): [Boolean]
     updateCategory(uuid: String, title: String): Category
     createItem(categoryUuid: String, title: String, picture: File): Item
+    updateItem(
+      uuid: String
+      title: String
+      picture: File
+      categoryUuid: String
+    ): UpdateItemResult
     createSet(title: String): Set
   }
 `;
