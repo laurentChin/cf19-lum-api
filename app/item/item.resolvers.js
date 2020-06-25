@@ -38,33 +38,39 @@ const mutations = {
     { title, categoryUuid, picture },
     { db, uuidV4Generator, uploadDirectory }
   ) => {
-    const uuid = uuidV4Generator.generate();
-    const category = await db.Category.where({ uuid: categoryUuid }).first();
-    const [{ _id, createdAt }] = await db.Item.create({
-      uuid,
-      categoryId: category._id,
-      title,
-    });
-
-    let pictureResult = {};
-
-    if (picture.name) {
-      pictureResult = await createPictureFromFile({
-        db,
-        picture,
-        _id,
-        uploadDirectory,
-        uuidV4Generator,
+    try {
+      const uuid = uuidV4Generator.generate();
+      const category = await db.Category.where({ uuid: categoryUuid }).first();
+      const [{ _id, createdAt }] = await db.Item.create({
+        uuid,
+        categoryId: category._id,
+        title,
       });
-    }
 
-    return {
-      uuid,
-      title,
-      category,
-      createdAt,
-      picture: pictureResult,
-    };
+      let pictureResult = {};
+
+      if (picture.name) {
+        pictureResult = await createPictureFromFile({
+          db,
+          picture,
+          _id,
+          uploadDirectory,
+          uuidV4Generator,
+        });
+      }
+
+      return {
+        uuid,
+        title,
+        category,
+        createdAt,
+        picture: pictureResult,
+      };
+    } catch ({ message }) {
+      return {
+        message,
+      };
+    }
   },
   updateItem: async (
     root,

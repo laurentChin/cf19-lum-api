@@ -9,6 +9,8 @@ const item = gql`
     category: Category
   }
 
+  union CreateItemResult = Item | Error
+
   type ItemLight {
     uuid: String
     title: String

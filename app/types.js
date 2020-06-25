@@ -30,7 +30,11 @@ const types = gql`
     createCategory(title: String): Category
     deleteCategory(uuid: String): [Boolean]
     updateCategory(uuid: String, title: String): Category
-    createItem(categoryUuid: String, title: String, picture: File): Item
+    createItem(
+      categoryUuid: String
+      title: String
+      picture: File
+    ): CreateItemResult
     updateItem(
       uuid: String
       title: String

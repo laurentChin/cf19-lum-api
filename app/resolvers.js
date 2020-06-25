@@ -10,6 +10,11 @@ const resolvers = {
       return obj.uuid ? "ItemLight" : "Error";
     },
   },
+  CreateItemResult: {
+    __resolveType: (obj) => {
+      return obj.uuid ? "Item" : "Error";
+    },
+  },
   ...File.enumerations,
   Query: {
     ...Category.queries,
